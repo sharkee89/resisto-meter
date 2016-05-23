@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="ResistoMeter">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-
+	<link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
+	<link rel="stylesheet" type="text/css" href="app/css/style.css">
 	<title>Application boilerplate</title>
 </head>
 <body>
@@ -16,12 +18,16 @@
 	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="bower_components/angular-mocks/angular-mocks.js"></script>
 	<script src="bower_components/angular-loader/angular-loader.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-material/angular-material.js"></script>
 
 	<!-- App and config js files -->
 	<script src="app/app.js"></script>
 	<script src="app/route.js"></script>
 
 	<!-- Controllers, Directives, Services, Factories ... -->
-	<script src="app/js/home/controllers/home-ctrl.js"></script>
+	<script src="app/js/home/controllers/resist-ctrl.js"></script>
+	<script src="app/js/home/constants.js"></script>
 </body>
 </html>

@@ -1,9 +1,10 @@
-angular.module('myApp').config(['$routeProvider',function($routeProvider) {
+angular.module('ResistoMeter').config(['$routeProvider',function($routeProvider) {
 
 	$routeProvider.
 	when('/',{
-		templateUrl: 'app/js/home/templates/home.html',
-		controller: 'HomeCtrl'
+		templateUrl: 'app/js/home/templates/resistometer.html',
+		controller: 'ResistCtrl',
+		controllerAs: 'resist'
 	}).
 
 	otherwise({

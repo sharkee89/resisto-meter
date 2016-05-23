@@ -1,1 +1,6 @@
-angular.module('myApp', ['ngRoute']);
+angular.module('ResistoMeter', [
+    'ngRoute',
+    'ngAria',
+    'ngAnimate',
+    'ngMaterial'
+]);
