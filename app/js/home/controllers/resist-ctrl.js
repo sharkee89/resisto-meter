@@ -4,7 +4,6 @@ angular.module('ResistoMeter').controller('ResistCtrl', ['Constants', function(C
 
     self.colors = Constants.colors;
     self.measurements = Constants.measurements;
-    self.highPrecisionMode = false;
     self.resistance = {
         positionOne: '',
         positionTwo: '',
@@ -13,8 +12,8 @@ angular.module('ResistoMeter').controller('ResistCtrl', ['Constants', function(C
         measureMultiplicator: 1
     }
 
-    self.switchMode = function () {
-        self.highPrecisionMode = !self.highPrecisionMode;
+    self.modes = {
+        resistor: 'standard',
     };
 
     self.calculateResistance = function () {
@@ -22,10 +21,13 @@ angular.module('ResistoMeter').controller('ResistCtrl', ['Constants', function(C
         var secondVal = getValueByColor(self.resistance.positionTwo, 'posTwoValue');
         var multiplier = getValueByColor(self.resistance.positionThree, 'multiplier');
         var tolerance = getValueByColor(self.resistance.positionFour, 'tolerance');
+        //console.log(self.resistance.measureMultiplicator);
+        var measureSignObject = getSignByMultiplicator(self.resistance.measureMultiplicator);
+        //console.log(measureSignObject);
         var firstTwo = firstVal + secondVal;
         var withMulti = firstTwo * multiplier;
         var result = withMulti * self.resistance.measureMultiplicator;
-        self.resistValue = result + '';
+        self.resistValue = result + measureSignObject.sign + ' with tolerance of ' + tolerance;
     }
 
     function getValueByColor (color, position) {
@@ -33,6 +35,16 @@ angular.module('ResistoMeter').controller('ResistCtrl', ['Constants', function(C
         angular.forEach(self.colors, function(value, key) {
             if (color === value.name) {
                 result = value[position];
+            }
+        });
+        return result;
+    }
+
+    function getSignByMultiplicator (multiplicator) {
+        var result;
+        angular.forEach(self.measurements, function(value, key) {
+            if (multiplicator == value.multiplicator) {
+                result = value;
             }
         });
         return result;

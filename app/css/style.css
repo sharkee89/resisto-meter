@@ -1,7 +1,12 @@
 .resistor div {
     height: 40px;
-    padding: 0 9%;
     background-clip: padding-box;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black; 
+}
+
+.clr-select-container {
+    width: 100%;
+}
+
+.color-selector-left {
+    padding-left: 0;
 }

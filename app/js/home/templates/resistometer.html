@@ -2,67 +2,83 @@
 <div class="container">
     <h3>Check your resistor value</h3>
 
-    <md-switch ng-model="resist.highPrecisionMode" aria-label="switch">
-        High Precision Mode
-    </md-switch>
+    <md-radio-group ng-model="resist.modes.resistor">
+      <md-radio-button value="standard">Standard precision resistor</md-radio-button>
+      <md-radio-button value="high">High precision resistor</md-radio-button>
+    </md-radio-group>
 
-    <div ng-if="!resist.highPrecisionMode" class="row">
-        <div class="col-md-3 col-sm-3">
-            <md-input-container>
-                <label>Position 1</label>
-                <md-select ng-model="resist.resistance.positionOne">
-                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
-                        {{color.name}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-        </div>
-        <div class="col-md-3 col-sm-3">
-            <md-input-container>
-                <label>Position 2</label>
-                <md-select ng-model="resist.resistance.positionTwo">
-                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
-                        {{color.name}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-        </div>
-        <div class="col-md-3 col-sm-3">
-            <md-input-container>
-                <label>Position 3</label>
-                <md-select ng-model="resist.resistance.positionThree">
-                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
-                        {{color.name}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-        </div>
-        <div class="col-md-3 col-sm-3">
-            <md-input-container>
-                <label>Position 4</label>
-                <md-select ng-model="resist.resistance.positionFour">
-                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
-                        {{color.name}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-        </div>
+    <div ng-if="resist.modes.resistor === 'standard'" class="row">
 
-        <div class="row">
-            <div class="resistor">
-                <div class="pos-one col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionOne}">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="row">
+                <div class="color-selector-left col-md-4 col-sm-4">
+                    <md-input-container class="clr-select-container">
+                        <label>Position 2</label>
+                        <md-select ng-model="resist.resistance.positionOne">
+                            <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
+                                {{color.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionTwo}">
-
+                <div class="color-selector-left col-md-4 col-sm-4">
+                    <md-input-container class="clr-select-container">
+                        <label>Position 2</label>
+                        <md-select ng-model="resist.resistance.positionTwo">
+                            <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
+                                {{color.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionThree}">
-
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionFour}">
-
+                <div class="color-selector-left col-md-4 col-sm-4">
+                    <md-input-container class="clr-select-container">
+                        <label>Position 3</label>
+                        <md-select ng-model="resist.resistance.positionThree">
+                            <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
+                                {{color.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
                 </div>
             </div>
         </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6"></div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <md-input-container class="clr-select-container">
+                        <label>Position 4</label>
+                        <md-select ng-model="resist.resistance.positionFour">
+                            <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
+                                {{color.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="resistor">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-4" ng-style="{'background-color':resist.resistance.positionOne}"></div>
+                        <div class="col-md-4 col-sm-4 col-xs-4" ng-style="{'background-color':resist.resistance.positionTwo}"></div>
+                        <div class="col-md-4 col-sm-4 col-xs-4" ng-style="{'background-color':resist.resistance.positionThree}"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6"></div>
+                    <div class="col-md-6 col-sm-6 col-xs-6" ng-style="{'background-color':resist.resistance.positionFour}"></div>
+                </div>
+            </div>
+        </div>
+
+        <hr/>
 
         <div class="row">
             <div class="col-md-12 text-center">
@@ -85,17 +101,15 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" ng-if="resist.resistValue">
             <div class="col-md-12 text-center">
-                <h4>{{resist.resistValue}}</h4>
+                <h3>{{resist.resistValue}}</h3>
             </div>
         </div>
     </div>
 
-    <div ng-if="resist.highPrecisionMode" class="row">
+    <div ng-if="resist.modes.resistor === 'high'" class="row">
         High precision mode is not yet available
     </div>
-
-
 
 </div>
