@@ -18,13 +18,24 @@ angular.module('ResistoMeter').controller('ResistCtrl', ['Constants', function(C
     };
 
     self.calculateResistance = function () {
-        var firstTwo = self.resistance.positionOne + self.resistance.positionTwo;
-        console.log(firstTwo);
-        var withMultiplicator = firstTwo * self.resistance.positionThree;
-        console.log(withMultiplicator);
-        var withMeasure = withMultiplicator + self.resistance.measureMultiplicator
-        console.log(withMeasure);
-        self.resistValue = withMeasure;
+        var firstVal = getValueByColor(self.resistance.positionOne, 'posOneValue');
+        var secondVal = getValueByColor(self.resistance.positionTwo, 'posTwoValue');
+        var multiplier = getValueByColor(self.resistance.positionThree, 'multiplier');
+        var tolerance = getValueByColor(self.resistance.positionFour, 'tolerance');
+        var firstTwo = firstVal + secondVal;
+        var withMulti = firstTwo * multiplier;
+        var result = withMulti * self.resistance.measureMultiplicator;
+        self.resistValue = result + '';
+    }
+
+    function getValueByColor (color, position) {
+        var result = 0;
+        angular.forEach(self.colors, function(value, key) {
+            if (color === value.name) {
+                result = value[position];
+            }
+        });
+        return result;
     }
 
 }]);

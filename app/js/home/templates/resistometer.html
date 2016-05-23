@@ -11,7 +11,7 @@
             <md-input-container>
                 <label>Position 1</label>
                 <md-select ng-model="resist.resistance.positionOne">
-                    <md-option ng-repeat="color in resist.colors" value="{{color.name}}">
+                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
                         {{color.name}}
                     </md-option>
                 </md-select>
@@ -21,7 +21,7 @@
             <md-input-container>
                 <label>Position 2</label>
                 <md-select ng-model="resist.resistance.positionTwo">
-                    <md-option ng-repeat="color in resist.colors" value="{{color.name}}">
+                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
                         {{color.name}}
                     </md-option>
                 </md-select>
@@ -31,7 +31,7 @@
             <md-input-container>
                 <label>Position 3</label>
                 <md-select ng-model="resist.resistance.positionThree">
-                    <md-option ng-repeat="color in resist.colors" value="{{color.name}}">
+                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
                         {{color.name}}
                     </md-option>
                 </md-select>
@@ -41,11 +41,54 @@
             <md-input-container>
                 <label>Position 4</label>
                 <md-select ng-model="resist.resistance.positionFour">
-                    <md-option ng-repeat="color in resist.colors" value="{{color.name}}">
+                    <md-option ng-style="{'background-color':color.name, 'color':color.name}" ng-repeat="color in resist.colors" value="{{color.name}}">
                         {{color.name}}
                     </md-option>
                 </md-select>
             </md-input-container>
+        </div>
+
+        <div class="row">
+            <div class="resistor">
+                <div class="pos-one col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionOne}">
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionTwo}">
+
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionThree}">
+
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionFour}">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <md-input-container>
+                    <label>Measurement</label>
+                    <md-select ng-model="resist.resistance.measureMultiplicator">
+                        <md-option ng-repeat="measure in resist.measurements" value="{{measure.multiplicator}}">
+                            {{measure.sign}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <md-button class="md-raised md-primary" ng-click="resist.calculateResistance()"
+                ng-disabled="!resist.resistance.positionOne || !resist.resistance.positionTwo || !resist.resistance.positionThree || !resist.resistance.positionFour"
+                >Calculate Resistance in OhMs</md-button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4>{{resist.resistValue}}</h4>
+            </div>
         </div>
     </div>
 
@@ -53,45 +96,6 @@
         High precision mode is not yet available
     </div>
 
-    <div class="row">
-        <div class="resistor">
-            <div class="pos-one col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionOne}">
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionTwo}">
 
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionThree}">
-
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-3" ng-style="{'background-color':resist.resistance.positionFour}">
-
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <md-input-container>
-                <label>Measurement</label>
-                <md-select ng-model="resist.measureMultiplicator">
-                    <md-option ng-repeat="measure in resist.measurements" value="{{measure.multiplicator}}">
-                        {{measure.sign}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <md-button class="md-raised md-primary" ng-click="resist.calculateResistance()">Calculate Resistance in OhMs</md-button>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h4>{{resist.resistValue}}</h4>
-        </div>
-    </div>
 
 </div>
