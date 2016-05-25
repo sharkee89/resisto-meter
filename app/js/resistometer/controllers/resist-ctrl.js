@@ -1,4 +1,4 @@
-angular.module('ResistoMeter').controller('ResistCtrl', ['Constants', function(Constants) {
+angular.module('Electric').controller('ResistCtrl', ['Constants', function(Constants) {
 
     var self = this;
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="ResistoMeter">
+<html ng-app="Electric">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -26,8 +26,12 @@
 	<script src="app/app.js"></script>
 	<script src="app/route.js"></script>
 
+	<script src="app/js/constants.js"></script>
 	<!-- Controllers, Directives, Services, Factories ... -->
-	<script src="app/js/home/controllers/resist-ctrl.js"></script>
-	<script src="app/js/home/constants.js"></script>
+	<!-- Home -->
+	<script src="app/js/home/controllers/home-ctrl.js"></script>
+	<!-- Resistometer -->
+	<script src="app/js/resistometer/controllers/resist-ctrl.js"></script>
+
 </body>
 </html>

@@ -1,5 +1,9 @@
-angular.module('ResistoMeter')
+angular.module('Electric')
     .constant('Constants', {
+
+        menu: [
+            {id: 0, name: 'ResistoMeter', url: 'resistometer'}
+        ],
 
         colors: [
             { name: 'black', posOneValue: '0', posTwoValue: '0', multiplier: 1, tolerance: '20%'},
