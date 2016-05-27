@@ -1,3 +1,18 @@
+/* Default setup */
+img {
+    max-width: 100%;
+}
+/* Home page */
+.menu-options img {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu-options img:hover {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+/* Detect your resistor */
 .resistor div {
     height: 40px;
     background-clip: padding-box;

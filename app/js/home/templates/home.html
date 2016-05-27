@@ -1,6 +1,15 @@
 <!-- Controller name: home -->
-<ul>
-    <li ng-repeat="menu in home.menu">
-        <a href="#/{{menu.url}}">{{menu.name}}</a>
-    </li>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="menu-options col-md-4" ng-repeat="menu in home.menu">
+            <div class="text-center">
+                <a ng-href="#/{{menu.url}}"><img ng-src="{{menu.img}}" alt="" /></a>
+                <svg height="100%" width="100%">
+                    <line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgb(0,0,0);stroke-width:8" />
+                    <animate from="0,2305" to="2305,0" dur="3s"
+                        attributeName="stroke-dasharray"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@ angular.module('Electric')
     .constant('Constants', {
 
         menu: [
-            {id: 0, name: 'ResistoMeter', url: 'resistometer'}
+            {id: 0, name: 'ResistoMeter', url: 'resistometer', img: '../../images/detectresistor.png'}
         ],
 
         colors: [
